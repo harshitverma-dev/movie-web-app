@@ -4,7 +4,7 @@ import { MovieContextData } from '../context/ContextData'
 
 
 const MoviesList: React.FC = () => {
-    const context = useContext(MovieContextData)
+    const context = useContext(MovieContextData);
     if (!context) {
         throw new Error('MoviesList must be used within a MovieProvider');
     }
