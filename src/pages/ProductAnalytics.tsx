@@ -6,7 +6,7 @@ import { Card } from 'primereact/card';
 const ProductAnalytics: React.FC = () => {
     const context = useContext(ProductContextData);
     if (!context) {
-        throw new Error('MoviesList must be used within a MovieProvider');
+        throw new Error('something went wrong!');
     }
     const { chartData, setChartData, chartOptions } = context;
     const documentStyle = getComputedStyle(document.documentElement);
@@ -23,7 +23,7 @@ const ProductAnalytics: React.FC = () => {
         })
     }, [])
     return (
-        <div className='movieAnalyticsContainer'>
+        <div className='productAnalyticsContainer'>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                 {/* <Chart type="doughnut" data={chartData} options={chartOptions} className="w-full md:w-30rem" /> */}
                 <Card title="Simple Card">

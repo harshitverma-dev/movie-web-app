@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.allMovieContainer .p-card-header {
+.allProductContainer .p-card-header {
   position: relative;
 }
 
@@ -38,7 +38,7 @@
   border-bottom: 1px solid #262930 !important;
 }
 
-.darkModeEnable .allMovieContainer .p-card, .darkModeEnable .movieDetailsContainer> div {
+.darkModeEnable .allProductContainer .p-card, .darkModeEnable .productDetailsContainer> div {
   background-color: #151f30;
   color: #fff;;
 }

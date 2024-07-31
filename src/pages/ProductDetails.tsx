@@ -23,7 +23,7 @@ const ProductDetails: React.FC = () => {
         getProductData();
     }, [])
     return (
-        <div className='movieDetailsContainer'>
+        <div className='productDetailsContainer'>
             <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg p-6">
                 <img src={storeProductDetail?.image ?? '../src/assets/dummy-img.webp'} alt={storeProductDetail?.title} className="w-full md:w-1/3 rounded-lg" />
                 <div className="md:ml-6 mt-4 md:mt-0 w-full">

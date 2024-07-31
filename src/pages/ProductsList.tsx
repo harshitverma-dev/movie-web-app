@@ -6,11 +6,11 @@ import ProductCard from '../component/ProductCard';
 const ProductsList: React.FC = () => {
     const context = useContext(ProductContextData);
     if (!context) {
-        throw new Error('MoviesList must be used within a MovieProvider');
+        throw new Error('ProductsList must be used within a ProductProvider');
     }
     const { productListState, setProductListState } = context;
     return (
-        <div className='allMovieContainer'>
+        <div className='allProductContainer'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                 {
                     productListState?.map((items, index) => {

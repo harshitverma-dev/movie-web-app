@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductProps> = (props) => {
     );
     const footer = (
         <>
-            <Link to={`/movie-detail/${productItem.productLink}`}>
+            <Link to={`/product-detail/${productItem.productLink}`}>
                 <Button icon="pi pi-external-link" label="Go to full detail" link />
             </Link>
             {/* {console.log(id, 'ddd', index, productListState, setProductListState)} // details */}
