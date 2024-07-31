@@ -1,45 +1,55 @@
-import React, { createContext, ReactNode, useState } from 'react'
-import { MoviesData, MoviesDataType } from '../data/MoviesData';
+import React, { createContext, ReactNode, useEffect, useState } from 'react'
+import { ProductsData, ProductsDataType } from '../data/ProductsData';
 import { IChartData, IChartOptions } from '../interfaces/Analytics/IChart';
-
 export interface createContextType {
-    movieListState: MoviesDataType[],
-    setMovieListState: React.Dispatch<React.SetStateAction<MoviesDataType[]>>
-    chartData : IChartData,
-    chartOptions : IChartOptions,
-    setChartData : React.Dispatch<React.SetStateAction<IChartData>>,
-    setChartOptions : React.Dispatch<React.SetStateAction<IChartOptions>>
+    productListState: ProductsDataType[],
+    setProductListState: React.Dispatch<React.SetStateAction<ProductsDataType[]>>
+    chartData: IChartData,
+    chartOptions: IChartOptions,
+    setChartData: React.Dispatch<React.SetStateAction<IChartData>>,
+    setChartOptions: React.Dispatch<React.SetStateAction<IChartOptions>>,
+    lightDarkMode: Boolean,
+    setLightDarkMode: React.Dispatch<React.SetStateAction<Boolean>>
 }
-
-
 
 interface props {
     children: ReactNode
 }
 
-
-export const MovieContextData = createContext<createContextType | null>(null);
+export const ProductContextData = createContext<createContextType | null>(null);
 
 const ContextData: React.FC<props> = ({ children }) => {
     const documentStyle = getComputedStyle(document.documentElement);
-    const [movieListState, setMovieListState] = useState<MoviesDataType[]>(MoviesData)
+    const [productListState, setProductListState] = useState<ProductsDataType[]>(ProductsData)
     const [chartData, setChartData] = useState<IChartData>({
-        labels : [],
+        labels: [],
         datasets: [
             {
                 data: [],
-                backgroundColor: [documentStyle.getPropertyValue('--indigo-500'),  documentStyle.getPropertyValue('--cyan-500'),  documentStyle.getPropertyValue('--green-400')],
-                hoverBackgroundColor: [documentStyle.getPropertyValue('--indigo-300'),  documentStyle.getPropertyValue('--cyan-300'),  documentStyle.getPropertyValue('--green-300')],
+                backgroundColor: [documentStyle.getPropertyValue('--indigo-500'), documentStyle.getPropertyValue('--cyan-500'), documentStyle.getPropertyValue('--green-400')],
+                hoverBackgroundColor: [documentStyle.getPropertyValue('--indigo-300'), documentStyle.getPropertyValue('--cyan-300'), documentStyle.getPropertyValue('--green-300')],
             }
         ]
     });
     const [chartOptions, setChartOptions] = useState<IChartOptions>({
-        cutout : '60%'
+        cutout: '60%'
     });
+    const [lightDarkMode, setLightDarkMode] = useState<Boolean>(() => {
+        const savedMode = localStorage.getItem('darkMode');
+        return savedMode ? JSON.parse(savedMode) : false;
+    });
+    useEffect(() => {
+        lightDarkMode ?
+            document.body.classList.add('darkModeEnable')
+            : document.body.classList.remove('darkModeEnable')
+
+        localStorage.setItem('darkMode', JSON.stringify(lightDarkMode));
+    }, [lightDarkMode]);
+
     return (
-        <MovieContextData.Provider value={{ movieListState, setMovieListState, chartData, chartOptions, setChartData, setChartOptions }}>
+        <ProductContextData.Provider value={{ productListState, setProductListState, chartData, chartOptions, setChartData, setChartOptions, lightDarkMode, setLightDarkMode }}>
             {children}
-        </MovieContextData.Provider>
+        </ProductContextData.Provider>
     )
 }
 

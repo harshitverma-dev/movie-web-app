@@ -1,9 +1,44 @@
-:root{
+:root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.allMovieContainer .p-card-header{
+.allMovieContainer .p-card-header {
   position: relative;
+}
+
+
+/* dark-mode-style */
+.darkModeEnable {
+  background-color: #131720;
+  color: #fff;
+}
+
+.darkModeEnable aside,
+.darkModeEnable aside>div {
+  background-color: #131720;
+}
+
+.darkModeEnable aside {
+  border-right: 1px solid #262930 !important;
+}
+
+.darkModeEnable aside>div li a {
+  color: #fff;
+}
+
+.darkModeEnable aside>div li a:hover {
+  color: #131720;
+}
+
+.darkModeEnable nav {
+  background-color: #131720;
+  color: #fff;
+  border-bottom: 1px solid #262930 !important;
+}
+
+.darkModeEnable .allMovieContainer .p-card, .darkModeEnable .movieDetailsContainer> div {
+  background-color: #151f30;
+  color: #fff;;
 }

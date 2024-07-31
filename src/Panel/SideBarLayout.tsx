@@ -12,14 +12,14 @@ const SideBarLayout: React.FC = () => {
             navPath: "/"
         },
         {
-            navName: "Movie Listing",
+            navName: "Product Listing",
             navIcon: <IoList size={22} />,
-            navPath: "/movie-list"
+            navPath: "/product-list"
         },
         {
-            navName: "Bookmark movies",
+            navName: "Bookmark Product",
             navIcon: <BsBookmarks size={22} />,
-            navPath: "/bookmark-movies"
+            navPath: "/bookmark-products"
         }
     ]
     return (

@@ -1,26 +1,26 @@
 import { Route, Routes } from "react-router-dom";
-import MoviesList from "../pages/MoviesList";
-import BookmarkMovies from "../pages/BookmarkMovies";
-import MovieDetails from "../pages/MovieDetails";
-import MovieAnalytics from "../pages/MovieAnalytics";
+import BookmarkProducts from "../pages/BookmarkProducts";
+import ProductAnalytics from "../pages/ProductAnalytics";
+import ProductsList from "../pages/ProductsList";
+import ProductDetails from "../pages/ProductDetails";
 
 const AppRoutes: React.FC = () => {
     const routesPath = [
         {
             path: "/",
-            element: <MovieAnalytics />
+            element: <ProductAnalytics />
         },
         {
-            path: "/movie-list",
-            element: <MoviesList />
+            path: "/product-list",
+            element: <ProductsList />
         },
         {
-            path: "/bookmark-movies",
-            element: <BookmarkMovies />
+            path: "/bookmark-products",
+            element: <BookmarkProducts />
         },
         {
-            path: "movie-detail/:id",
-            element : <MovieDetails/>
+            path: "product-detail/:id",
+            element : <ProductDetails/>
             
         }
     ]

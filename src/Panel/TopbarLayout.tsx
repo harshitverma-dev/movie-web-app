@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CiLight, CiDark } from "react-icons/ci";
+import { ProductContextData } from '../context/ContextData';
 
 const TopbarLayout: React.FC = () => {
+    const context = useContext(ProductContextData);
+    if (!context) {
+        throw new Error('it should not be null');
+    }
+    const { lightDarkMode, setLightDarkMode } = context;
+
+    const handleModeFun = () => {
+        setLightDarkMode(!lightDarkMode)
+    }
     return (
         <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -13,11 +24,16 @@ const TopbarLayout: React.FC = () => {
                             </svg>
                         </button>
                         <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                            <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
-                            <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Movie App</span>
+                            <img src="../src/assets/manomano-logo.png" className="h-8 me-3" alt="FlowBite Logo" />
+                            {/* <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Manomano</span> */}
                         </a>
                     </div>
                     <div className="flex items-center">
+                        <div className='me-2 cursor-pointer' onClick={handleModeFun}>
+                            {
+                                lightDarkMode ? <CiLight size={28} /> : <CiDark size={28} />
+                            }
+                        </div>
                         <div className="flex items-center ms-3">
                             <div>
                                 <button type="button" className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
