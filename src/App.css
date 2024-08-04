@@ -8,6 +8,10 @@
   position: relative;
 }
 
+body{
+  background-color: #efefef;
+}
+
 
 /* dark-mode-style */
 .darkModeEnable {
