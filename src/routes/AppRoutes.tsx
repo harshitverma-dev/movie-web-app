@@ -3,6 +3,7 @@ import BookmarkProducts from "../pages/BookmarkProducts";
 import ProductAnalytics from "../pages/ProductAnalytics";
 import ProductsList from "../pages/ProductsList";
 import ProductDetails from "../pages/ProductDetails";
+import AddNewProduct from "../pages/AddNewProduct";
 
 const AppRoutes: React.FC = () => {
     const routesPath = [
@@ -19,9 +20,12 @@ const AppRoutes: React.FC = () => {
             element: <BookmarkProducts />
         },
         {
-            path: "product-detail/:id",
+            path: "/product-detail/:id",
             element : <ProductDetails/>
-            
+        },
+        {
+            path: "/add-product",
+            element : <AddNewProduct/>
         }
     ]
     return (

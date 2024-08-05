@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { HiOutlineHome } from "react-icons/hi2";
-import { IoList } from "react-icons/io5";
+import { IoList, IoAddCircleOutline } from "react-icons/io5";
 import { BsBookmarks } from "react-icons/bs";
 
 const SideBarLayout: React.FC = () => {
@@ -20,6 +20,11 @@ const SideBarLayout: React.FC = () => {
             navName: "Bookmark Product",
             navIcon: <BsBookmarks size={22} />,
             navPath: "/bookmark-products"
+        },
+        {
+            navName: "Add Product",
+            navIcon: <IoAddCircleOutline size={22}/>,
+            navPath: "/add-product"
         }
     ]
     return (

@@ -2,9 +2,11 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import 'flowbite'
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 // import 'flowbite/dist/flowbite.css'; 
-import 'flowbite'
+import "primereact/resources/primereact.min.css";
+
 import 'primeicons/primeicons.css';
 import ContextData from './context/ContextData.tsx';
 
