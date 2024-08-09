@@ -1,22 +1,28 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Card } from "flowbite-react";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { InputNumber } from 'primereact/inputnumber';
 import { Dropdown } from 'primereact/dropdown';
-import {MultiSelect} from 'primereact/multiselect'
+import { MultiSelect } from 'primereact/multiselect'
+import { Toast } from 'primereact/toast';
+import {ImageUploader} from 'react-image-upload'
+import { RiDeleteRow } from 'react-icons/ri';
+import { BsCamera } from 'react-icons/bs';
 
 const AddNewProduct: React.FC = () => {
     const [selectedCity, setSelectedCity] = useState(null);
-    const cities = [
-        { name: 'New York', code: 'NY' },
-        { name: 'Rome', code: 'RM' },
-        { name: 'London', code: 'LDN' },
-        { name: 'Istanbul', code: 'IST' },
-        { name: 'Paris', code: 'PRS' }
-    ];
+    const toast = useRef<Toast>(null);
+    const [totalSize, setTotalSize] = useState(0);
 
-    
+    function getImageFileObject(imageFile:any) {
+        console.log({ imageFile })
+    }
+
+    function runAfterImageDelete(file:any) {
+        console.log({ file })
+    }
+
     return (
         <div className='addNewProductContainer'>
             <Card title='Add New Product'>
@@ -34,9 +40,27 @@ const AddNewProduct: React.FC = () => {
                             </div>
                         </Card>
                         <Card className=''>
-                        <h5 className='text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>Product Media</h5>
+                            <h5 className='text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>Product Media</h5>
                             <div>
                                 <span>Photo Product</span>
+                                {/* <Toast ref={toast}></Toast>
+
+                                <Tooltip target=".custom-choose-btn" content="Choose" position="bottom" />
+                                <Tooltip target=".custom-upload-btn" content="Upload" position="bottom" />
+                                <Tooltip target=".custom-cancel-btn" content="Clear" position="bottom" />
+
+                                <FileUpload ref={fileUploadRef} name="demo[]" url="/api/upload" multiple accept="image/*" maxFileSize={1000000}
+                                    onUpload={onTemplateUpload} onSelect={onTemplateSelect} onError={onTemplateClear} onClear={onTemplateClear}
+                                    headerTemplate={headerTemplate} itemTemplate={itemTemplate} emptyTemplate={emptyTemplate}
+                                    chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions} /> */}
+
+                                <ImageUploader
+                                    onFileAdded={(img: any) => getImageFileObject(img)}
+                                    onFileRemoved={(img: any) => runAfterImageDelete(img)}
+                                    style={{ height: 200, width: 200, background: 'rgb(0 182 255)' }}
+                                    deleteIcon={<RiDeleteRow />}
+                                    uploadIcon={<BsCamera />}
+                                />
                             </div>
 
                         </Card>
